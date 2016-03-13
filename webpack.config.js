@@ -22,10 +22,7 @@ module.exports = {
       }, {
         test: /\.js$/,
         loader: 'babel',
-        include: path.join(__dirname, 'client'),
-        query: {
-          presets: ['react', 'es2015', 'stage-2']
-        }
+        include: path.join(__dirname, 'client')
       }
     ]
   }
