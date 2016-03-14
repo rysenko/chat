@@ -1,9 +1,14 @@
 import React from 'react';
 import * as ReactRedux from 'react-redux';
+import Messages from '../components/Messages';
+import MessageInput from '../components/MessageInput';
 
-const Main = () => {
+const Main = ({ messages }) => {
   return (
-    <div>Chat will be here</div>
+    <div>
+      <Messages messages={messages} />
+      <MessageInput />
+    </div>
   );
 };
 

@@ -9,7 +9,9 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import configureStore from './store/configureStore';
 
-const store = configureStore();
+const store = configureStore({
+  messages: [{ id: 1, text: 'one'}, {id: 2, text: 'two' }, { id: 3, text: 'three'}]
+});
 const history = syncHistoryWithStore(browserHistory, store);
 
 ReactDOM.render(
