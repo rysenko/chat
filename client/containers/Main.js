@@ -2,27 +2,22 @@ import React from 'react';
 import * as ReactRedux from 'react-redux';
 import Messages from '../components/Messages';
 import MessageInput from '../components/MessageInput';
+import { sendMessage } from '../actions/creators';
 
-const Main = ({ messages }) => {
+const Main = ({ messages, sendMessage }) => {
   return (
     <div>
       <Messages messages={messages} />
-      <MessageInput />
+      <MessageInput sendMessage={sendMessage} />
     </div>
   );
 };
 
 Main.propTypes = {
   messages: React.PropTypes.array.isRequired,
-  dispatch: React.PropTypes.func.isRequired
+  sendMessage: React.PropTypes.func.isRequired
 };
 
 Main.displayName = 'Main';
 
-function mapStateToProps(state) {
-  return {
-    messages: state.messages
-  };
-}
-
-export default ReactRedux.connect(mapStateToProps)(Main);
+export default ReactRedux.connect(state => ({ messages: state.messages }), { sendMessage })(Main);

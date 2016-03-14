@@ -1,11 +1,9 @@
-import * as ActionTypes from '../constants/ActionTypes';
+import { MESSAGE_RECEIVE } from '../actions/types';
 
 export default (state = [], action) => {
   switch (action.type) {
-    case ActionTypes.MESSAGES_FETCH_SUCCESS:
-      return [...state, ...action.response];
-    case ActionTypes.MESSAGES_FETCH_FAILURE:
-      return [];
+    case MESSAGE_RECEIVE:
+      return [ ...state, action.message ];
     default:
       return state;
   }
